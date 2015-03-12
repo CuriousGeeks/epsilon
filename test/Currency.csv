@@ -1,0 +1,61 @@
+CURRENCY_ID,CURRENCY_NUMBER,CURRENCY_NAME,AUTH_ID,CURRENCY_DAY_COUNT
+AED,784,UAE Dirhams,0,360
+ARS,32,Argentine Peso,0,360
+AUD,36,Australian Dollars,0,365
+BHD,48,Bahraini Dinars,0,360
+BOB,68,Boliviano,0,360
+BRL,986,Brazilian Real,0,360
+CAD,124,Canadian Dollars,0,365
+CHF,756,Swiss Francs,0,360
+CLP,152,Chilean Peso,0,360
+CNY,156,Chinese Yuan,0,360
+CRC,188,Costa Rican Colon,0,360
+CZK,203,Czeck Koruna,0,360
+DKK,208,Danish Krone,0,360
+DZD,12,Algerian Dinar,0,360
+EGP,818,Egyptian Pound,0,360
+EUR,978,Euro,0,360
+GBP,826,British Pound,0,365
+HKD,344,Hong Kong Dollar,0,365
+HRK,191,Croatian Kuna,0,360
+HUF,348,Hungarian Forint,0,360
+IDR,360,Indonesian Rupiah,0,360
+ILS,376,Israeli Shekel,0,360
+INR,356,Indian Rupee,0,360
+IQD,368,Iragi Dinar,0,360
+IRR,364,Iranian Rial,0,360
+JOD,400,Jordanian Dinar,0,360
+JPY,392,Japanese Yen,0,360
+KRW,410,South Korean Won,0,360
+KWD,414,Kuwaiti Dinar,0,360
+LBP,422,Lebanese Pound,0,360
+LYD,434,Libyan Dinar,0,360
+MAD,504,Moroccan Dirham,0,360
+MXN,484,Mexican Peso,0,360
+MYR,458,Malaysian Ringgit,0,360
+NOK,578,Norwegian Krone,0,360
+NZD,554,New Zealand Dollar,0,365
+OMR,512,Omani Riyal,0,360
+PHP,608,Philippine Peso,0,360
+PKR,586,Pakistani Rupee,0,360
+PLN,985,Polish Zloty,0,360
+QAR,634,Qatari Riyal,0,360
+RON,946,Romanian Leu,0,360
+RUB,643,Russian Rouble,0,360
+SAR,682,Saudi Riyal,0,360
+SEK,752,Swedish Krona,0,360
+SGD,702,Singapore Dollar,0,365
+SYP,760,Syrian Pound,0,360
+THB,764,Thai Baht,0,360
+TND,788,Tunisian Dinar,0,360
+TRY,949,Turkish Lira,0,360
+UAH,980,Ukranian Hryvnia,0,360
+USD,840,US Dollars,0,360
+UYU,858,Uruguayan Peso,0,360
+VEF,937,Bolivar,0,360
+XAG,961,Silver,0,360
+XAU,959,Gold,0,360
+XPD,964,Palladium,0,360
+XPT,962,Platinum,0,360
+YER,886,Yemeni Rial,0,360
+ZAR,710,South African Rand,0,360

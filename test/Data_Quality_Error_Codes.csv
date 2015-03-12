@@ -1,0 +1,28 @@
+ERROR_CODE,FIELD_NAME,DESCRIPTION,AUTH_ID
+B001,Balance_Book,Book Balance is less than or equal to zero,0
+B002,Balance_Par,Par Balance is less than or equal to zero,0
+D001,Date_Issue,Issue (Start) Date is either incorrect or does not exist,0
+D002,Date_Issue,Issue (Start) Date is greater than current date,0
+D003,Date_Maturity,Maturity Date is either incorrect or does not exist,0
+D004,Date_Maturity,Current Date is greater than Maturity Date,0
+F001,Paymnt_Freq,"Payment Frequency is less than or equal to zero, or otherwise does not exist",0
+F002,Paymnt_Freq_Unit,Payment Frequency Unit does not exist,0
+F003,Reset_Freq,"Repricing Frequency is less than or equal to zero, or otherwise does not exist",0
+F004,Reset_Freq_Unit,Repricing Frequency Unit does not exist,0
+F005,Amortising_Freq,"Amortising Frequency is less than or equal to zero, or otherwise does not exist",0
+F006,Amortising_Freq_Unit,Amortising Frequency Unit does not exist,0
+F007,Compounding_Freq,"Compounding Frequency is less than or equal to zero, or otherwise does not exist",0
+F008,Compounding_Freq_Unit,Compounding Frequency Unit does not exist,0
+O001,Product_Type,Product Type does not exist,0
+O002,Chart_Of_Account_ID,Chart_Of_Account_ID does not exist,0
+O003,GL_Account_ID,GL_Account_ID does not exist,0
+O004,Instrument_ID,Instrument ID does not exist,0
+O005,Currency,Currency Code does not exist,0
+O006,Asset_Liability,Asset / Liability field has not been populated correctly,0
+O007,Business_Day_Convention,"Either Business Day does not exist, or the field is not a number equal to or between 0 and 9",0
+O008,Accrual_Basis,"Either Accrual Basis does not exist, or the field is not a number equal to or between 0 and 9",0
+O009,Calendar_Paymnt,"Calendar_Payment is not a Currency Code, or does not exist",0
+O010,Calendar_Reset,"Calendar_Reset is not a Currency Code, or does not exist",0
+O011,Security_ID,Security ID does not exist,0
+R001,Rate_Customer,Customer Rate does not exist,0
+R002,Rate_Coupon,Coupon Rate does not exist,0
