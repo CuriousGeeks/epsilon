@@ -8,3 +8,9 @@
  #2 Added Database Object
   - CDatabase & CSVRow class implementation.
   - LoadIntoTheMap pending.
+  
+ #3 Added new Epsilon Object - Currency and InterestRate.
+  - For InterestRate currently loading only around 5 fields. We would need more fields later.
+  - Fields value setting from CSVRow is done except for Date field (yet to decide how to store date).
+  - main.cpp changed to EpsilonObjectMain.cpp. This is done so that there can be other similar main file could reside in the same folder.r
+  
