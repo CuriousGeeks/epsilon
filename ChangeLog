@@ -4,3 +4,7 @@
   - not compeleted.
   - still have to workout ways to update field data.
   - project file is of CodeLite IDE (linux environment).
+
+ #2 Added Database Object
+  - CDatabase & CSVRow class implementation.
+  - LoadIntoTheMap pending.
