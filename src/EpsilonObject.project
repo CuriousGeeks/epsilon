@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CodeLite_Project Name="EpsilonObject" InternalType="Console">
   <Plugins>
+    <Plugin Name="qmake">
+      <![CDATA[00010001N0005Debug000000000000]]>
+    </Plugin>
     <Plugin Name="CMakePlugin">
       <![CDATA[[{
   "name": "Debug",
@@ -13,22 +16,23 @@
   "parentProject": ""
  }]]]>
     </Plugin>
-    <Plugin Name="qmake">
-      <![CDATA[00010001N0005Debug000000000000]]>
-    </Plugin>
   </Plugins>
   <Description/>
   <Dependencies/>
   <VirtualDirectory Name="src">
-    <File Name="main.cpp"/>
     <File Name="Object.cpp"/>
     <File Name="Field.cpp"/>
     <File Name="ProcessObject.cpp"/>
+    <File Name="InterestRateObject.cpp"/>
+    <File Name="CurrencyObject.cpp"/>
+    <File Name="EpsilonObjectMain.cpp"/>
   </VirtualDirectory>
   <VirtualDirectory Name="inc">
     <File Name="Object.h"/>
     <File Name="Field.h"/>
     <File Name="ProcessObject.h"/>
+    <File Name="InterestRateObject.h"/>
+    <File Name="CurrencyObject.h"/>
   </VirtualDirectory>
   <Settings Type="Executable">
     <GlobalSettings>

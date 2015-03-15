@@ -4,7 +4,7 @@ using namespace el;
 
 
 BEGIN_FIELD_DESCRIPTOR(CProcessObject)
-	ADD_FIELD_DESCRIPTOR(m_nProcessId)
+	ADD_FIELD_DESCRIPTOR(m_nProcessID)
 	ADD_FIELD_DESCRIPTOR(m_szProcessDesc)
 	ADD_FIELD_DESCRIPTOR(m_nProcessType)
 	ADD_FIELD_DESCRIPTOR(m_nProcessSubCategory)
@@ -13,7 +13,7 @@ BEGIN_FIELD_DESCRIPTOR(CProcessObject)
 END_FIELD_DESCRIPTOR()
 
 CProcessObject::CProcessObject():
-m_nProcessId(eProcessID),
+m_nProcessID(eProcessID),
 m_szProcessDesc(eProcessDesc),
 m_nProcessType(eProcessType),
 m_nProcessSubCategory(eProcessSubCategory),

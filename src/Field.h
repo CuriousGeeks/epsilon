@@ -1,5 +1,7 @@
 #pragma once
 
+#include<string>
+
 namespace el{
 
 class CField
@@ -28,6 +30,8 @@ public:
 	inline int  GetColumnId() { return m_nColumnId; }
 	inline void SetColumnId(int nColumnId) { m_nColumnId = nColumnId; }
 	
+	virtual void SetValue(const std::string& sValue) {}
+	virtual void GetValue(std::string& sValue) {}
 	//int Get() { return GetAddress(}
 private:
 	int m_nColumnId;	
@@ -49,6 +53,7 @@ public:
 	inline  int  GetTypeId() { return eTypeId;}
 	inline  bool Get() { return m_iVal;}
 	
+	void SetValue(const std::string& sValue);
 private:
 	int m_iVal;
 };
@@ -66,6 +71,7 @@ public:
 	inline int  GetTypeId() { return eTypeId;}
 	inline unsigned int Get() { return m_nVal;}
 	
+	void SetValue(const std::string& sValue);
 private:
 	unsigned int m_nVal;
 };
@@ -85,6 +91,7 @@ public:
 	inline int  GetTypeId() { return eTypeId;}
 	inline bool Get() { return m_bVal;}
 	
+	void SetValue(const std::string& sValue);
 private:
 	int m_bVal;	
 };
@@ -103,6 +110,7 @@ public:
 	inline int  GetTypeId() { return eTypeId;}
 	inline char Get() { return m_chVal;}
 	
+	void SetValue(const std::string& sValue);
 private:
 	char m_chVal;	
 };
@@ -120,6 +128,7 @@ public:
 	inline int  GetTypeId() { return eTypeId;}
 	inline char Get() { return m_chVal;}
 	
+	void SetValue(const std::string& sValue);
 private:
 	char m_chVal;	
 };
@@ -134,22 +143,21 @@ public:
 	};
 		
 			
-	CFieldString(int nId, int nSize = 0) : CField(nId) 
+	CFieldString(int nId) : CField(nId) 
 	{
-		m_chVal = (nSize > 0 ? new char[nSize] : nullptr);
+		m_strVal = "";
 	}
 	
 	~CFieldString()
 	{
-		if (m_chVal != nullptr)
-			delete m_chVal;
 	}
 	
 	inline int  GetTypeId() { return eTypeId;}
-	inline char *Get() { return m_chVal;}
+	inline std::string& Get() { return m_strVal;}
 	
+	void SetValue(const std::string& sValue);
 private:
-	char *m_chVal;	
+	std::string m_strVal;	
 };
 
 
