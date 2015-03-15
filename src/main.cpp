@@ -6,6 +6,9 @@
 
 int main(int argc, char **argv)
 {
+	el::CDatabase epsilonDB("Process.csv");
+	epsilonDB.LoadFromFile();
+	
 	el::CProcessObject processObj;
 	
 	el::TFieldDescriptor *pDesc = processObj.GetFieldDescriptor();
