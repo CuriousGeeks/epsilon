@@ -14,3 +14,7 @@
   - Fields value setting from CSVRow is done except for Date field (yet to decide how to store date).
   - main.cpp changed to EpsilonObjectMain.cpp. This is done so that there can be other similar main file could reside in the same folder.r
   
+  #4 Added Rule class
+  - Added CRule base class.
+  - Currently added only BalanceBookRule will add rest of the rules also.
+  
