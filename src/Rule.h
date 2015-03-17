@@ -43,7 +43,7 @@ namespace el
 		
 		inline int GetRuleId() { return m_eRuleId; }
 		
-		bool Execute(const CCache& cache, const CObject& obj);
+		bool Execute(const CCache& cache, CInterestRateObject& obj);
 		
 		inline string GetErrorCode() { return ""; }
 	};

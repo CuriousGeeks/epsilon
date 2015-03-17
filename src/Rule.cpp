@@ -2,7 +2,7 @@
 
 using namespace el;
 
-bool Execute(const CCache& cache, CInterestRateObject& obj)
+bool CBalanceBookRule::Execute(const CCache& cache, CInterestRateObject& obj)
 {
 	return obj.IsBalanceBookValid();
 }
