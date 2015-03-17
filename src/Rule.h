@@ -2,13 +2,12 @@
 #include <string>
 using namespace std;
 
+#include "Cache.h"
+#include "InterestRateObject.h"
+
+
 namespace el
 {
-	class CCache
-	{};
-	class CObject
-	{};
-
 	class CRule
 	{
 	public:
@@ -26,13 +25,13 @@ namespace el
 			eRateIndexRule,
 			eAssetLiabilityRule,
 			eBusinessDayConventionRule,
-			AccrualBasisRule,
-			FlagPaymentRule,
-			CalendarPaymentRule,
-			CalendarResetRule,
-			RateCustomerRule
+			eAccrualBasisRule,
+			eFlagPaymentRule,
+			eCalendarPaymentRule,
+			eCalendarResetRule,
+			eRateCustomerRule
 		};
-		virtual bool Execute(const CCache& cache,const CObject& obj) = 0;
+		virtual bool Execute(const el::CCache& cache, CInterestRateObject& obj) = 0;
 		virtual string GetErrorCode() = 0;
 	};
 
@@ -41,15 +40,11 @@ namespace el
 		enmRuleId m_eRuleId;
 	public:
 		CBalanceBookRule() :m_eRuleId(eBalanceBookRule){}
+		
 		inline int GetRuleId() { return m_eRuleId; }
-		bool Execute(const CCache& cache, const CObject& obj)
-		{
-			//validate
-			return true;
-		}
-		string GetErrorCode()
-		{
-			return "";
-		}
+		
+		bool Execute(const CCache& cache, const CObject& obj);
+		
+		inline string GetErrorCode() { return ""; }
 	};
 }

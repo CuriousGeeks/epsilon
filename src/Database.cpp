@@ -7,6 +7,11 @@ CDatabase::CDatabase(string szCSVFileName) :m_szCSVFileName(szCSVFileName)
 {
 }
 
+CDatabase::~CDatabase()
+{
+	//****** NOTE : MEMORY LEAK ******** need to write deletion from whole list.
+}
+
 bool CDatabase::LoadFromFile()
 {
 	ifstream file(m_szCSVFileName);

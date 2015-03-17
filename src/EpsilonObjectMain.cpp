@@ -2,15 +2,15 @@
 #include <iostream>
 #include <map>
 
+#include "Database.h"
 #include "ProcessObject.h"
 #include "CurrencyObject.h"
+#include "Cache.h"
 
 int main(int argc, char **argv)
 {
-	//el::CDatabase epsilonDB("Process.csv");
-	//epsilonDB.LoadFromFile();
-	
-	el::CProcessObject processObj;
+		
+	/*el::CProcessObject processObj;
 	
 	el::TFieldDescriptor *pDesc = processObj.GetFieldDescriptor();
 	
@@ -48,7 +48,16 @@ int main(int argc, char **argv)
 	mapProcess[ processObj.GetProcessID() ] = &processObj;
 	
 	mapCurrency[ dummyCurrObj.GetCurrencyID() ] = &dummyCurrObj;
+	*/
 	
+	
+		
+	el::CCache cache;
+	
+	cache.LoadAll();
+	
+	//Looping cache.GetInterestRate() and running the rules based on product type code will come here.
+		
 	
 	printf("hello world\n");
 	return 0;
