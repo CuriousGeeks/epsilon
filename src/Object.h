@@ -28,12 +28,22 @@ class CCSVRow;
 
 class CObject
 {
-public:	
+public:
+	enum eObjectTypes
+	{
+		eInvalidObject,
+		eProcessObject,
+		eInterestRateObject,
+		eCurrencyObject
+	};
+	
 	CObject()
 	{
 		
 	}
-
+	
+	virtual int GetObjectType() { return eInvalidObject;}
+	
 	//For Field Descriptor.
 	virtual TFieldDescriptor* GetFieldDescriptor() = 0;
 	inline CField* GetFieldPtr(int *pOffset) { return (CField *)(reinterpret_cast<char *>(this) + reinterpret_cast<size_t>(pOffset)); }

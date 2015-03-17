@@ -1,4 +1,5 @@
 #pragma once
+
 #include <list>
 #include <vector>
 #include <string>
@@ -30,7 +31,10 @@ namespace el
 		list<CCSVRow*> m_lstProcessTable;
 	public:
 		CDatabase(string szCSVFileName);
+		~CDatabase();				//****** NOTE : MEMORY LEAK ******** need to write deletion from whole list.
 		bool LoadFromFile();
+		
+		inline list<CCSVRow*>& GetCSVRowList() { return m_lstProcessTable; }
 		//LoadIntoMap()
 	};
 

@@ -18,3 +18,7 @@
   - Added CRule base class.
   - Currently added only BalanceBookRule will add rest of the rules also.
   
+  #5 Below change done:
+  - Complete loading into cache from csv design is decided and function declation done. (Implentation remaining)
+  - A simple rule for BalanceBook done.
+  - ****** CDatabase list deletion in destructor needs to be done.

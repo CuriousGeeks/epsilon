@@ -16,7 +16,7 @@ void CObject::LoadFromRecord(CCSVRow& rwCSV)
 	{
 		el::CField* pField = this->GetFieldPtr(pDesc[i].m_nOffset);
 		
-		std::string strValue; // = rwCSV[pField->GetColumnId()];
+		std::string strValue ;//= rwCSV[pField->GetColumnId()];
 		
 		pField->SetValue(strValue);
 		
