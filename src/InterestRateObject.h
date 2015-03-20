@@ -21,8 +21,7 @@ public:
 	CInterestRateObject();
 	
 	unsigned int GetInstrumentID() { return m_nInstrumentID.Get(); }
-	
-		
+			
 	bool IsBalanceBookValid() {	return m_nBalanceBook.Get() < 0; }
 	
 	DECLARE_FIELD_DESCRIPTOR();
