@@ -43,10 +43,12 @@ void CFieldString::SetValue(const std::string& sValue)
 
 void CFieldDouble::SetValue(const std::string& sValue)
 {
-	m_dVal = std::stod(sValue.c_str());
+	if (!sValue.empty())
+		m_dVal = std::stod(sValue.c_str());
 }
 
 void CFieldFloat::SetValue(const std::string& sValue)
 {
-	m_fVal = std::stof(sValue.c_str());
+	if (!sValue.empty())
+		m_fVal = std::stof(sValue.c_str());
 }

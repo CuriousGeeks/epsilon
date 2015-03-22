@@ -47,7 +47,7 @@ namespace el
 		
 		bool Execute(const CCache& cache, const CInterestRateObject& obj);
 		
-		inline string GetErrorCode() { return ""; }
+		inline string GetErrorCode() { return "B001"; }
 	};
 
 	class CDateIssueRule : public CRule
@@ -57,7 +57,7 @@ namespace el
 		CDateIssueRule() :m_eRuleId(eDateIssueRule){}
 		inline int GetRuleId() { return m_eRuleId; }
 		bool Execute(const CCache& cache, const CInterestRateObject& obj);
-		inline string GetErrorCode(){return "";}
+		inline string GetErrorCode(){return "D001";}
 	};
 
 	class CDateIssueAndDateDataRule : public CRule
@@ -67,7 +67,7 @@ namespace el
 		CDateIssueAndDateDataRule() :m_eRuleId(eDateIssueAndDateDataRule){}
 		inline int GetRuleId() { return m_eRuleId; }
 		bool Execute(const CCache& cache, const CInterestRateObject& obj);
-		inline string GetErrorCode(){ return ""; }
+		inline string GetErrorCode(){ return "D002"; }
 	};
 
 	class CDateMaturityRule : public CRule
@@ -77,7 +77,7 @@ namespace el
 		CDateMaturityRule() :m_eRuleId(eDateMaturityRule){}
 		inline int GetRuleId() { return m_eRuleId; }
 		bool Execute(const CCache& cache, const CInterestRateObject& obj);
-		inline string GetErrorCode(){ return ""; }
+		inline string GetErrorCode(){ return "D003"; }
 	};
 
 	class CDateMaturityAndDateDataRule : public CRule
@@ -87,7 +87,7 @@ namespace el
 		CDateMaturityAndDateDataRule() :m_eRuleId(eDateMaturityAndDateDataRule){}
 		inline int GetRuleId() { return m_eRuleId; }
 		bool Execute(const CCache& cache, const CInterestRateObject& obj);
-		inline string GetErrorCode(){ return ""; }
+		inline string GetErrorCode(){ return "D004"; }
 	};
 
 	class CPaymentFreqRule : public CRule
@@ -97,7 +97,7 @@ namespace el
 		CPaymentFreqRule() :m_eRuleId(ePaymentFreqRule){}
 		inline int GetRuleId() { return m_eRuleId; }
 		bool Execute(const CCache& cache, const CInterestRateObject& obj);
-		inline string GetErrorCode(){ return ""; }
+		inline string GetErrorCode(){ return "F001"; }
 	};
 
 	class CPaymentFreqUnitRule : public CRule
@@ -107,7 +107,7 @@ namespace el
 		CPaymentFreqUnitRule() :m_eRuleId(ePaymentFreqUnitRule){}
 		inline int GetRuleId() { return m_eRuleId; }
 		bool Execute(const CCache& cache, const CInterestRateObject& obj);
-		inline string GetErrorCode(){ return ""; }
+		inline string GetErrorCode(){ return "F002"; }
 	};
 
 	class CResetFreqRule : public CRule
@@ -117,7 +117,7 @@ namespace el
 		CResetFreqRule() :m_eRuleId(eResetFreqRule){}
 		inline int GetRuleId() { return m_eRuleId; }
 		bool Execute(const CCache& cache, const CInterestRateObject& obj);
-		inline string GetErrorCode(){ return ""; }
+		inline string GetErrorCode(){ return "F003"; }
 	};
 
 	class CResetFreqUnitRule : public CRule
@@ -127,7 +127,7 @@ namespace el
 		CResetFreqUnitRule() :m_eRuleId(eResetFreqUnitRule){}
 		inline int GetRuleId() { return m_eRuleId; }
 		bool Execute(const CCache& cache, const CInterestRateObject& obj);
-		inline string GetErrorCode(){ return ""; }
+		inline string GetErrorCode(){ return "F004"; }
 	};
 
 	class CRateIndexRule : public CRule
@@ -147,7 +147,7 @@ namespace el
 		CAssetLiabilityRule() :m_eRuleId(eAssetLiabilityRule){}
 		inline int GetRuleId() { return m_eRuleId; }
 		bool Execute(const CCache& cache, const CInterestRateObject& obj);
-		inline string GetErrorCode(){ return ""; }
+		inline string GetErrorCode(){ return "O006"; }
 	};
 
 	class CBusinessDayConventionRule : public CRule
@@ -157,7 +157,7 @@ namespace el
 		CBusinessDayConventionRule() :m_eRuleId(eBusinessDayConventionRule){}
 		inline int GetRuleId() { return m_eRuleId; }
 		bool Execute(const CCache& cache, const CInterestRateObject& obj);
-		inline string GetErrorCode(){ return ""; }
+		inline string GetErrorCode(){ return "O007"; }
 	};
 
 	class CAccrualBasisRule : public CRule
@@ -167,7 +167,7 @@ namespace el
 		CAccrualBasisRule() :m_eRuleId(eAccrualBasisRule){}
 		inline int GetRuleId() { return m_eRuleId; }
 		bool Execute(const CCache& cache, const CInterestRateObject& obj);
-		inline string GetErrorCode(){ return ""; }
+		inline string GetErrorCode(){ return "O008"; }
 	};
 
 	class CFlagPaymentRule : public CRule
@@ -187,7 +187,7 @@ namespace el
 		CCalendarPaymentRule() :m_eRuleId(eCalendarPaymentRule){}
 		inline int GetRuleId() { return m_eRuleId; }
 		bool Execute(const CCache& cache, const CInterestRateObject& obj);
-		inline string GetErrorCode(){ return ""; }
+		inline string GetErrorCode(){ return "O009"; }
 	};
 
 	class CCalendarResetRule : public CRule
@@ -197,7 +197,7 @@ namespace el
 		CCalendarResetRule() :m_eRuleId(eCalendarResetRule){}
 		inline int GetRuleId() { return m_eRuleId; }
 		bool Execute(const CCache& cache, const CInterestRateObject& obj);
-		inline string GetErrorCode(){ return ""; }
+		inline string GetErrorCode(){ return "O010"; }
 	};
 
 	class CRateCustomerRule : public CRule
@@ -207,7 +207,7 @@ namespace el
 		CRateCustomerRule() :m_eRuleId(eRateCustomerRule){}
 		inline int GetRuleId() { return m_eRuleId; }
 		bool Execute(const CCache& cache, const CInterestRateObject& obj);
-		inline string GetErrorCode(){ return ""; }
+		inline string GetErrorCode(){ return "R001"; }
 	};
 
 }

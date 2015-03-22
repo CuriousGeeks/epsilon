@@ -39,6 +39,7 @@ bool CCache::Load(const std::string& strCSVFile, IntKeyObjectCache& mapObjectCac
 					
 					mapObjectCache.insert(pair<unsigned int, shared_ptr<CObject>> (processObj->GetProcessID(), processObj));
 				}
+				break;
 				case CObject::eInterestRateObject:
 				{
 					shared_ptr<CInterestRateObject> interestRateObj(new CInterestRateObject());
@@ -86,9 +87,10 @@ bool CCache::Load(const std::string& strCSVFile, StringKeyObjectCache& mapObject
 
 bool CCache::LoadAll()
 {
-	Load("../../test/Process.csv", GetProcessCache(), CObject::eProcessObject);
-	Load("../../test/Currency.csv", GetCurrencyCache(), CObject::eCurrencyObject);
-	Load("../../test/Interest_Rate.csv", GetInterestRateCache(), CObject::eInterestRateObject);
+	Load("../test/Process.csv", GetProcessCache(), CObject::eProcessObject);
+	Load("../test/Currency.csv", GetCurrencyCache(), CObject::eCurrencyObject);
+	Load("../test/Interest_Rate.csv", GetInterestRateCache(), CObject::eInterestRateObject);
+	m_ProductRuleCache.Initialize();
 	//Load("Currency.csv" ..)
 	//Load("InterestRate.csv" ..)
 	return true;
