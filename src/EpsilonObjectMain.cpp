@@ -18,11 +18,16 @@ int main(int argc, char **argv)
 	
 	auto& interestRateCache = cache.GetInterestRateCache();
 	
+	auto& productRuleCache = cache.GetProductRuleCache();
+	
 	for (auto& processKV : processCache)
 	{
 		for (auto& interestRateKV : interestRateCache)
 		{
-			//interestRateKV.second
+			for (auto& productRuleKV : productRuleCache)
+			{
+				//productRuleKV.first
+			}
 		}
 	}
 		

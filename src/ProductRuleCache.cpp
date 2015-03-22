@@ -24,7 +24,46 @@ void CRuleCache::Initialize()
 	m_mapRule[CRule::eRateCustomerRule] = shared_ptr<CRule>(new CRateCustomerRule);	
 }
 
+
+ProductRuleMap& CProductRuleCache::GetProductRuleCache()
+{ 
+	return m_ProductRuleCache.GetProductRuleMap(); 
+}
+
 void CProductRuleCache::Initialize()
 {
-	m_mapProductRule
+	m_RuleCache.Initialize();
+	auto& ruleMap = m_RuleCache.GetRuleMap();
+	
+	
+	//Credit Cards Product
+	list<shared_ptr<CRule>> lstCreditCardsRules;
+	lstCreditCardsRules.push_back(ruleMap[CRule::eBalanceBookRule]);
+	lstCreditCardsRules.push_back(ruleMap[CRule::eDateIssueRule]);
+	lstCreditCardsRules.push_back(ruleMap[CRule::eDateIssueAndDateDataRule]);
+	lstCreditCardsRules.push_back(ruleMap[CRule::eDateMaturityRule]);
+	lstCreditCardsRules.push_back(ruleMap[CRule::eDateMaturityAndDateDataRule]);
+	lstCreditCardsRules.push_back(ruleMap[CRule::ePaymentFreqRule]);
+	lstCreditCardsRules.push_back(ruleMap[CRule::ePaymentFreqUnitRule]);
+	lstCreditCardsRules.push_back(ruleMap[CRule::eResetFreqRule]);
+	lstCreditCardsRules.push_back(ruleMap[CRule::eResetFreqUnitRule]);
+	lstCreditCardsRules.push_back(ruleMap[CRule::eRateIndexRule]);
+	lstCreditCardsRules.push_back(ruleMap[CRule::eAssetLiabilityRule]);
+	lstCreditCardsRules.push_back(ruleMap[CRule::eBusinessDayConventionRule]);
+	lstCreditCardsRules.push_back(ruleMap[CRule::eAccrualBasisRule]);
+	lstCreditCardsRules.push_back(ruleMap[CRule::eFlagPaymentRule]);
+	lstCreditCardsRules.push_back(ruleMap[CRule::eCalendarPaymentRule]);
+	lstCreditCardsRules.push_back(ruleMap[CRule::eCalendarResetRule]);
+	lstCreditCardsRules.push_back(ruleMap[CRule::eRateCustomerRule]);
+	
+	m_mapProductRule[eCreditCards] = lstCreditCardsRules;
+	
+	
+
+	
+}
+
+void CProductRuleCache::Execute(int nProductType)
+{
+	
 }

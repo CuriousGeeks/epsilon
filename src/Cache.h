@@ -4,11 +4,16 @@
 #include<memory>
 
 #include "Object.h"
+#include "ProductRuleCache.h"
+
 
 namespace el{
 
 typedef std::map<std::string , std::shared_ptr<el::CObject>> StringKeyObjectCache;
 typedef std::map<unsigned int, std::shared_ptr<el::CObject>> IntKeyObjectCache;
+
+//class CProductRuleCache;
+//class ProductRuleMap;
 	
 class CCache
 {
@@ -17,6 +22,7 @@ class CCache
 	inline IntKeyObjectCache& GetProcessCache() { return m_mapProcessCache; }
 	inline IntKeyObjectCache& GetInterestRateCache() { return m_mapInterestRateCache; }
 	inline StringKeyObjectCache& GetCurrencyCache() { return m_mapCurrencyCache; }
+	ProductRuleMap& GetProductRuleCache();
 	
 	bool LoadAll();
 private:
@@ -28,6 +34,8 @@ private:
 	IntKeyObjectCache m_mapProcessCache;
 	
 	IntKeyObjectCache m_mapInterestRateCache;
+	
+	CProductRuleCache m_ProductRuleCache;
 };
 	
 	
