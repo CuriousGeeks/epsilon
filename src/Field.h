@@ -51,7 +51,7 @@ public:
 	CFieldInt (int nId) : CField(nId) {}
 	
 	inline  int  GetTypeId() { return eTypeId;}
-	inline  bool Get() { return m_iVal;}
+	inline  int Get() { return m_iVal;}
 	
 	void SetValue(const std::string& sValue);
 private:
@@ -93,7 +93,7 @@ public:
 	
 	void SetValue(const std::string& sValue);
 private:
-	int m_bVal;	
+	bool m_bVal;	
 };
 
 
@@ -126,11 +126,11 @@ public:
 	CFieldDate(int nId) : CField(nId) {}
 	
 	inline int  GetTypeId() { return eTypeId;}
-	inline char Get() { return m_chVal;}
+	inline time_t Get() { return m_chVal;}
 	
 	void SetValue(const std::string& sValue);
 private:
-	char m_chVal;	
+	time_t m_chVal;	
 };
 
 class CFieldString : public CField
@@ -160,5 +160,39 @@ private:
 	std::string m_strVal;	
 };
 
+class CFieldFloat : public CField
+{
+public:
+	enum enmTypeId
+	{
+		eTypeId = eFloat
+	};
 
+	CFieldFloat(float nId) : CField(nId) {}
+
+	inline  int  GetTypeId() { return eTypeId; }
+	inline  float Get() { return m_fVal; }
+
+	void SetValue(const std::string& sValue);
+private:
+	float m_fVal;
+};
+
+class CFieldDouble : public CField
+{
+public:
+	enum enmTypeId
+	{
+		eTypeId = eInt
+	};
+
+	CFieldDouble(double nId) : CField(nId) {}
+
+	inline  int  GetTypeId() { return eTypeId; }
+	inline  double Get() { return m_dVal; }
+
+	void SetValue(const std::string& sValue);
+private:
+	double m_dVal;
+};
 };
