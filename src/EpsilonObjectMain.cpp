@@ -34,7 +34,10 @@ int main(int argc, char **argv)
 			
 			for(auto& rule : lstRule)
 			{
-				rule->Execute(cache, *pInterestRateObj);
+				if (!rule->Execute(cache, *pInterestRateObj))
+				{
+					//capture error code and write in csv.
+				}
 			}
 		}
 	}

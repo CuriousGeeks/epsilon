@@ -35,7 +35,7 @@ public:
 	
 	CInterestRateObject();
 	
-	//unsigned int GetInstrumentID() { return m_nInstrumentID.Get(); }
+	unsigned int GetInstrumentID() { return m_nInstrumentID.Get(); }
 	unsigned int GetProductType() { return m_nProductType.Get(); }
 			
 	bool IsBalanceBookValid() const;
@@ -60,7 +60,7 @@ public:
 	
 	DECLARE_FIELD_DESCRIPTOR();
 private:
-	mutable CFieldString	m_szInstrumentID;
+	mutable CFieldUInt		m_nInstrumentID;
 	mutable CFieldString	m_szSecurityID;
 	mutable CFieldString	m_szGLAccountID;
 	mutable CFieldUInt 		m_nProductType;

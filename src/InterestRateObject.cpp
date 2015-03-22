@@ -6,7 +6,7 @@ using namespace el;
 #define CHECK_FREQ(x) (x >= 0 && x <= 365)
 
 BEGIN_FIELD_DESCRIPTOR(CInterestRateObject)
-	ADD_FIELD_DESCRIPTOR(m_szInstrumentID)
+	ADD_FIELD_DESCRIPTOR(m_nInstrumentID)
 	ADD_FIELD_DESCRIPTOR(m_szSecurityID)
 	ADD_FIELD_DESCRIPTOR(m_szGLAccountID)
 	ADD_FIELD_DESCRIPTOR(m_nProductType)
@@ -29,7 +29,7 @@ BEGIN_FIELD_DESCRIPTOR(CInterestRateObject)
 END_FIELD_DESCRIPTOR()
 
 CInterestRateObject::CInterestRateObject():
-m_szInstrumentID(eInstrumentID),
+m_nInstrumentID(eInstrumentID),
 m_szSecurityID(eSecurityID),
 m_szGLAccountID(eGLAccountID),
 m_nProductType(eProductType),

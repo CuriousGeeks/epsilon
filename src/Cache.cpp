@@ -3,6 +3,7 @@
 
 #include "ProcessObject.h"
 #include "CurrencyObject.h"
+#include "InterestRateObject.h"
 
 #include <iostream>
 
@@ -37,6 +38,13 @@ bool CCache::Load(const std::string& strCSVFile, IntKeyObjectCache& mapObjectCac
 					processObj->LoadFromRecord(rowVec);
 					
 					mapObjectCache.insert(pair<unsigned int, shared_ptr<CObject>> (processObj->GetProcessID(), processObj));
+				}
+				case CObject::eInterestRateObject:
+				{
+					shared_ptr<CInterestRateObject> interestRateObj(new CInterestRateObject());
+					interestRateObj->LoadFromRecord(rowVec);
+					
+					mapObjectCache.insert(pair<unsigned int, shared_ptr<CObject>> (interestRateObj->GetInstrumentID(), interestRateObj));
 				}
 				break;
 			}
@@ -80,6 +88,7 @@ bool CCache::LoadAll()
 {
 	Load("../../test/Process.csv", GetProcessCache(), CObject::eProcessObject);
 	Load("../../test/Currency.csv", GetCurrencyCache(), CObject::eCurrencyObject);
+	Load("../../test/Interest_Rate.csv", GetInterestRateCache(), CObject::eInterestRateObject);
 	//Load("Currency.csv" ..)
 	//Load("InterestRate.csv" ..)
 	return true;
