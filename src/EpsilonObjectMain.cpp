@@ -5,6 +5,7 @@
 #include "RecordSet.h"
 #include "ProcessObject.h"
 #include "CurrencyObject.h"
+#include "InterestRateObject.h"
 #include "Cache.h"
 
 int main(int argc, char **argv)
@@ -24,9 +25,16 @@ int main(int argc, char **argv)
 	{
 		for (auto& interestRateKV : interestRateCache)
 		{
-			for (auto& productRuleKV : productRuleCache)
+			shared_ptr<el::CObject> obj = interestRateKV.second;
+			
+			el::CInterestRateObject *pInterestRateObj = (el::CInterestRateObject *)obj.get();
+			
+			//Fetch Rule to be run
+			auto& lstRule = productRuleCache[ pInterestRateObj->GetProductType() ];
+			
+			for(auto& rule : lstRule)
 			{
-				//productRuleKV.first
+				rule->Execute(cache, *pInterestRateObj);
 			}
 		}
 	}

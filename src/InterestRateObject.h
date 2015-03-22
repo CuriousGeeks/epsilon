@@ -36,6 +36,7 @@ public:
 	CInterestRateObject();
 	
 	//unsigned int GetInstrumentID() { return m_nInstrumentID.Get(); }
+	unsigned int GetProductType() { return m_nProductType.Get(); }
 			
 	bool IsBalanceBookValid() const;
 	bool IsIssueDateValid() const;
