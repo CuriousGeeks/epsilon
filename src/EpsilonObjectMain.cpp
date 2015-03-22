@@ -13,8 +13,7 @@ int main(int argc, char **argv)
 	
 	cache.LoadAll();
 	
-	
-	
+		
 	auto& processCache = cache.GetProcessCache();
 	
 	auto& interestRateCache = cache.GetInterestRateCache();
