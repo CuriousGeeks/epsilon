@@ -2,12 +2,14 @@
 #include <string>
 using namespace std;
 
-#include "Cache.h"
+//#include "Cache.h"
 #include "InterestRateObject.h"
 
 
 namespace el
 {
+	class CCache;
+	
 	class CRule
 	{
 	public:

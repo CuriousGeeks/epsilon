@@ -8,6 +8,10 @@
 
 using namespace el;
 
+ProductRuleMap& CCache::GetProductRuleCache()
+{ 
+	return m_ProductRuleCache.GetProductRuleMap(); 
+}
 
 	
 bool CCache::Load(const std::string& strCSVFile, IntKeyObjectCache& mapObjectCache, CObject::eObjectTypes eObjectType)

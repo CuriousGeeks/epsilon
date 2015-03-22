@@ -4,6 +4,7 @@
 
 #include <map>
 #include <list>
+#include <memory>
 
 namespace el{
 

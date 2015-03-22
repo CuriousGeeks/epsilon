@@ -25,10 +25,7 @@ void CRuleCache::Initialize()
 }
 
 
-ProductRuleMap& CProductRuleCache::GetProductRuleCache()
-{ 
-	return m_ProductRuleCache.GetProductRuleMap(); 
-}
+
 
 void CProductRuleCache::Initialize()
 {
