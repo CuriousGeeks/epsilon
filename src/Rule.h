@@ -54,7 +54,7 @@ namespace el
 	public:
 		CDateIssueRule() :m_eRuleId(eDateIssueRule){}
 		inline int GetRuleId() { return m_eRuleId; }
-		bool Execute(const CCache& cache, const CObject& obj)
+		bool Execute(const CCache& cache, CInterestRateObject& obj)
 		{
 			//validate
 			return true;
@@ -71,7 +71,7 @@ namespace el
 	public:
 		CDateIssueAndDateDataRule() :m_eRuleId(eDateIssueAndDateDataRule){}
 		inline int GetRuleId() { return m_eRuleId; }
-		bool Execute(const CCache& cache, const CObject& obj)
+		bool Execute(const CCache& cache, CInterestRateObject& obj)
 		{
 			//validate
 			return true;
@@ -88,7 +88,7 @@ namespace el
 	public:
 		CDateMaturityRule() :m_eRuleId(eDateMaturityRule){}
 		inline int GetRuleId() { return m_eRuleId; }
-		bool Execute(const CCache& cache, const CObject& obj)
+		bool Execute(const CCache& cache, CInterestRateObject& obj)
 		{
 			//validate
 			return true;
@@ -105,7 +105,7 @@ namespace el
 	public:
 		CDateMaturityAndDateDataRule() :m_eRuleId(eDateMaturityAndDateDataRule){}
 		inline int GetRuleId() { return m_eRuleId; }
-		bool Execute(const CCache& cache, const CObject& obj)
+		bool Execute(const CCache& cache, CInterestRateObject& obj)
 		{
 			//validate
 			return true;
@@ -122,7 +122,7 @@ namespace el
 	public:
 		CPaymentFreqRule() :m_eRuleId(ePaymentFreqRule){}
 		inline int GetRuleId() { return m_eRuleId; }
-		bool Execute(const CCache& cache, const CObject& obj)
+		bool Execute(const CCache& cache, CInterestRateObject& obj)
 		{
 			//validate
 			return true;
@@ -139,7 +139,7 @@ namespace el
 	public:
 		CPaymentFreqUnitRule() :m_eRuleId(ePaymentFreqUnitRule){}
 		inline int GetRuleId() { return m_eRuleId; }
-		bool Execute(const CCache& cache, const CObject& obj)
+		bool Execute(const CCache& cache, CInterestRateObject& obj)
 		{
 			//validate
 			return true;
@@ -156,7 +156,7 @@ namespace el
 	public:
 		CResetFreqRule() :m_eRuleId(eResetFreqRule){}
 		inline int GetRuleId() { return m_eRuleId; }
-		bool Execute(const CCache& cache, const CObject& obj)
+		bool Execute(const CCache& cache, CInterestRateObject& obj)
 		{
 			//validate
 			return true;
@@ -173,7 +173,7 @@ namespace el
 	public:
 		CResetFreqUnitRule() :m_eRuleId(eResetFreqUnitRule){}
 		inline int GetRuleId() { return m_eRuleId; }
-		bool Execute(const CCache& cache, const CObject& obj)
+		bool Execute(const CCache& cache, CInterestRateObject& obj)
 		{
 			//validate
 			return true;
@@ -190,7 +190,7 @@ namespace el
 	public:
 		CRateIndexRule() :m_eRuleId(eRateIndexRule){}
 		inline int GetRuleId() { return m_eRuleId; }
-		bool Execute(const CCache& cache, const CObject& obj)
+		bool Execute(const CCache& cache, CInterestRateObject& obj)
 		{
 			//validate
 			return true;
@@ -207,7 +207,7 @@ namespace el
 	public:
 		CAssetLiabilityRule() :m_eRuleId(eAssetLiabilityRule){}
 		inline int GetRuleId() { return m_eRuleId; }
-		bool Execute(const CCache& cache, const CObject& obj)
+		bool Execute(const CCache& cache, CInterestRateObject& obj)
 		{
 			//validate
 			return true;
@@ -224,7 +224,7 @@ namespace el
 	public:
 		CBusinessDayConventionRule() :m_eRuleId(eBusinessDayConventionRule){}
 		inline int GetRuleId() { return m_eRuleId; }
-		bool Execute(const CCache& cache, const CObject& obj)
+		bool Execute(const CCache& cache, CInterestRateObject& obj)
 		{
 			//validate
 			return true;
@@ -241,7 +241,7 @@ namespace el
 	public:
 		CAccrualBasisRule() :m_eRuleId(eAccrualBasisRule){}
 		inline int GetRuleId() { return m_eRuleId; }
-		bool Execute(const CCache& cache, const CObject& obj)
+		bool Execute(const CCache& cache, CInterestRateObject& obj)
 		{
 			//validate
 			return true;
@@ -258,7 +258,7 @@ namespace el
 	public:
 		CFlagPaymentRule() :m_eRuleId(eFlagPaymentRule){}
 		inline int GetRuleId() { return m_eRuleId; }
-		bool Execute(const CCache& cache, const CObject& obj)
+		bool Execute(const CCache& cache, CInterestRateObject& obj)
 		{
 			//validate
 			return true;
@@ -275,7 +275,7 @@ namespace el
 	public:
 		CCalendarPaymentRule() :m_eRuleId(eCalendarPaymentRule){}
 		inline int GetRuleId() { return m_eRuleId; }
-		bool Execute(const CCache& cache, const CObject& obj)
+		bool Execute(const CCache& cache, CInterestRateObject& obj)
 		{
 			//validate
 			return true;
@@ -292,7 +292,7 @@ namespace el
 	public:
 		CCalendarResetRule() :m_eRuleId(eCalendarResetRule){}
 		inline int GetRuleId() { return m_eRuleId; }
-		bool Execute(const CCache& cache, const CObject& obj)
+		bool Execute(const CCache& cache, CInterestRateObject& obj)
 		{
 			//validate
 			return true;
@@ -309,7 +309,7 @@ namespace el
 	public:
 		CRateCustomerRule() :m_eRuleId(eRateCustomerRule){}
 		inline int GetRuleId() { return m_eRuleId; }
-		bool Execute(const CCache& cache, const CObject& obj)
+		bool Execute(const CCache& cache, CInterestRateObject& obj)
 		{
 			//validate
 			return true;

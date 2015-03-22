@@ -29,6 +29,7 @@
     <File Name="Cache.cpp"/>
     <File Name="Rule.cpp"/>
     <File Name="RecordSet.cpp"/>
+    <File Name="ProductRuleCache.cpp"/>
   </VirtualDirectory>
   <VirtualDirectory Name="inc">
     <File Name="Object.h"/>
@@ -39,6 +40,7 @@
     <File Name="Rule.h"/>
     <File Name="Cache.h"/>
     <File Name="RecordSet.h"/>
+    <File Name="ProductRuleCache.h"/>
   </VirtualDirectory>
   <Settings Type="Executable">
     <GlobalSettings>
