@@ -10,7 +10,7 @@ using namespace std;
 
 namespace el
 {
-	class CCSVRow: public vector<string>
+	class CCSVRow
 	{
 	public:
 		CCSVRow(const string& szRow)
@@ -20,9 +20,13 @@ namespace el
 
 			while (getline(lineStream, szCell, ','))
 			{
-				push_back(szCell);
+				m_vecRow.push_back(szCell);
 			}
 		}
+		
+		inline const vector<string>& GetVecRow() {return m_vecRow;}
+	private:	
+		vector<string> m_vecRow;
 	};
 
 	class CRecordSet

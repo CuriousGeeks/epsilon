@@ -27,8 +27,8 @@
     <File Name="CurrencyObject.cpp"/>
     <File Name="EpsilonObjectMain.cpp"/>
     <File Name="Cache.cpp"/>
-    <File Name="Database.cpp"/>
     <File Name="Rule.cpp"/>
+    <File Name="RecordSet.cpp"/>
   </VirtualDirectory>
   <VirtualDirectory Name="inc">
     <File Name="Object.h"/>
@@ -38,7 +38,7 @@
     <File Name="CurrencyObject.h"/>
     <File Name="Rule.h"/>
     <File Name="Cache.h"/>
-    <File Name="Database.h"/>
+    <File Name="RecordSet.h"/>
   </VirtualDirectory>
   <Settings Type="Executable">
     <GlobalSettings>

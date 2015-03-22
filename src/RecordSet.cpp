@@ -20,7 +20,11 @@ bool CRecordSet::LoadFromFile()
 	{
 		string szRow;
 		getline(file, szRow);
-		m_lstTable.push_back(new CCSVRow(szRow));
+		
+		if (szRow.size() > 0)
+		{
+			m_lstTable.push_back(new CCSVRow(szRow));
+		}
 	}
 	return true;
 }

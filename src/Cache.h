@@ -3,7 +3,7 @@
 #include<map>
 #include<memory>
 
-#include "ProcessObject.h"
+#include "Object.h"
 
 namespace el{
 
@@ -15,13 +15,13 @@ class CCache
 	public:
 
 	inline IntKeyObjectCache& GetProcessCache() { return m_mapProcessCache; }
-	inline IntKeyObjectCache& GetInterestRate() { return m_mapInterestRateCache; }
+	inline IntKeyObjectCache& GetInterestRateCache() { return m_mapInterestRateCache; }
 	inline StringKeyObjectCache& GetCurrencyCache() { return m_mapCurrencyCache; }
 	
 	bool LoadAll();
 private:
-	bool Load(std::string& strCSVFile, IntKeyObjectCache& mapObjectCache, CObject::eObjectTypes eObjectType, int nKeyColumnId);
-	bool Load(std::string& strCSVFile, StringKeyObjectCache& mapObjectCache, CObject::eObjectTypes eObjectType, int nKeyColumnId);
+	bool Load(const std::string& strCSVFile, IntKeyObjectCache& mapObjectCache, CObject::eObjectTypes eObjectType);
+	bool Load(const std::string& strCSVFile, StringKeyObjectCache& mapObjectCache, CObject::eObjectTypes eObjectType);
 	
 	
 	StringKeyObjectCache m_mapCurrencyCache;	
