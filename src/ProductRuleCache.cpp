@@ -59,8 +59,3 @@ void CProductRuleCache::Initialize()
 
 	
 }
-
-void CProductRuleCache::Execute(int nProductType)
-{
-	
-}

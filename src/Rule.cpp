@@ -1,72 +1,75 @@
 #include "Rule.h"
+#include "Cache.h"
 
 using namespace el;
 
-bool CBalanceBookRule::Execute(const CCache& cache, const CInterestRateObject& obj)
+bool CBalanceBookRule::Execute(CCache& cache, CInterestRateObject& obj)
 {
 	return obj.IsBalanceBookValid();
 }
-bool CDateIssueRule::Execute(const CCache& cache, const CInterestRateObject& obj)
+bool CDateIssueRule::Execute(CCache& cache, CInterestRateObject& obj)
 {
 	return obj.IsIssueDateValid();
 }
-bool CDateIssueAndDateDataRule::Execute(const CCache& cache, const CInterestRateObject& obj)
+bool CDateIssueAndDateDataRule::Execute(CCache& cache, CInterestRateObject& obj)
 {
 	return obj.IsIssueDateValidForData();
 }
-bool CDateMaturityRule::Execute(const CCache& cache, const CInterestRateObject& obj)
+bool CDateMaturityRule::Execute(CCache& cache, CInterestRateObject& obj)
 {
 	return obj.IsMaturityDateValid();
 }
-bool CDateMaturityAndDateDataRule::Execute(const CCache& cache, const CInterestRateObject& obj)
+bool CDateMaturityAndDateDataRule::Execute(CCache& cache, CInterestRateObject& obj)
 {
 	return obj.IsMaturityDateValidForData();
 }
-bool CPaymentFreqRule::Execute(const CCache& cache, const CInterestRateObject& obj)
+bool CPaymentFreqRule::Execute(CCache& cache, CInterestRateObject& obj)
 {
 	return obj.IsPaymentFreqValid();
 }
-bool CPaymentFreqUnitRule::Execute(const CCache& cache, const CInterestRateObject& obj)
+bool CPaymentFreqUnitRule::Execute(CCache& cache, CInterestRateObject& obj)
 {
 	return obj.IsPaymentFreqUnitValid();
 }
-bool CResetFreqRule::Execute(const CCache& cache, const CInterestRateObject& obj)
+bool CResetFreqRule::Execute(CCache& cache, CInterestRateObject& obj)
 {
 	return obj.IsResetFreqValid();
 }
-bool CResetFreqUnitRule::Execute(const CCache& cache, const CInterestRateObject& obj)
+bool CResetFreqUnitRule::Execute(CCache& cache, CInterestRateObject& obj)
 {
 	return obj.IsResetFreqUnitValid();
 }
-bool CRateIndexRule::Execute(const CCache& cache, const CInterestRateObject& obj)
+bool CRateIndexRule::Execute(CCache& cache, CInterestRateObject& obj)
 {
 	return obj.IsRateIndexValid();
 }
-bool CAssetLiabilityRule::Execute(const CCache& cache, const CInterestRateObject& obj)
+bool CAssetLiabilityRule::Execute(CCache& cache, CInterestRateObject& obj)
 {
 	return obj.IsAssetLiabilityValid();
 }
-bool CBusinessDayConventionRule::Execute(const CCache& cache, const CInterestRateObject& obj)
+bool CBusinessDayConventionRule::Execute(CCache& cache, CInterestRateObject& obj)
 {
 	return obj.IsBusinessDayConventionValid();
 }
-bool CAccrualBasisRule::Execute(const CCache& cache, const CInterestRateObject& obj)
+bool CAccrualBasisRule::Execute(CCache& cache, CInterestRateObject& obj)
 {
 	return obj.IsAccrualBasisValid();
 }
-bool CFlagPaymentRule::Execute(const CCache& cache, const CInterestRateObject& obj)
+bool CFlagPaymentRule::Execute(CCache& cache, CInterestRateObject& obj)
 {
 	return obj.IsFlagPaymentValid();
 }
-bool CCalendarPaymentRule::Execute(const CCache& cache, const CInterestRateObject& obj)
+bool CCalendarPaymentRule::Execute(CCache& cache, CInterestRateObject& obj)
 {
-	return obj.IsCalendarPaymentValid();
+	auto& currencyCache = cache.GetCurrencyCache();
+	return currencyCache.find(obj.GetCalendarPayment()) != currencyCache.end();
 }
-bool CCalendarResetRule::Execute(const CCache& cache, const CInterestRateObject& obj)
+bool CCalendarResetRule::Execute(CCache& cache, CInterestRateObject& obj)
 {
-	return obj.IsCalendarResetValid();
+	auto& currencyCache = cache.GetCurrencyCache();
+	return currencyCache.find(obj.GetCalendarPayment()) != currencyCache.end();
 }
-bool CRateCustomerRule::Execute(const CCache& cache, const CInterestRateObject& obj)
+bool CRateCustomerRule::Execute(CCache& cache, CInterestRateObject& obj)
 {
 	return obj.IsRateCustomerValid();
 }

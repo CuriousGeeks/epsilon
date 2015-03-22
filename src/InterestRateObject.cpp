@@ -74,7 +74,5 @@ bool CInterestRateObject::IsAssetLiabilityValid() const{ return (m_nAssetLiabili
 bool CInterestRateObject::IsBusinessDayConventionValid() const{ return (m_nBuisnessDayConvention.Get() >= 0 && m_nBuisnessDayConvention.Get() <= 9); }
 bool CInterestRateObject::IsAccrualBasisValid() const{ return (m_nAccrualBasis.Get() >= 0 && m_nAccrualBasis.Get() <= 9); }
 bool CInterestRateObject::IsFlagPaymentValid() const{ return (m_nFlagPayment.Get() == 1 || m_nFlagPayment.Get() == 2); }
-bool CInterestRateObject::IsCalendarPaymentValid() const{ return m_dBalanceBook.Get() < 0; }
-bool CInterestRateObject::IsCalendarResetValid() const{ return m_dBalanceBook.Get() < 0; }
 bool CInterestRateObject::IsRateCustomerValid() const{ return m_dRateCustomer.Get() != 0; }
 

@@ -39,8 +39,7 @@ public:
 	
 	void Initialize();
 	
-	void Execute(int nProductType);
-	
+		
 private:
 	ProductRuleMap m_mapProductRule;
 	CRuleCache m_RuleCache;

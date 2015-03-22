@@ -23,8 +23,9 @@ class CCache
 	inline IntKeyObjectCache& GetInterestRateCache() { return m_mapInterestRateCache; }
 	inline StringKeyObjectCache& GetCurrencyCache() { return m_mapCurrencyCache; }
 	ProductRuleMap& GetProductRuleCache();
-	
+		
 	bool LoadAll();
+	
 private:
 	bool Load(const std::string& strCSVFile, IntKeyObjectCache& mapObjectCache, CObject::eObjectTypes eObjectType);
 	bool Load(const std::string& strCSVFile, StringKeyObjectCache& mapObjectCache, CObject::eObjectTypes eObjectType);

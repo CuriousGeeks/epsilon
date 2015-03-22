@@ -37,6 +37,9 @@ public:
 	
 	unsigned int GetInstrumentID() { return m_nInstrumentID.Get(); }
 	unsigned int GetProductType() { return m_nProductType.Get(); }
+	
+	std::string& GetCalendarPayment() { return m_szCalendarPayment.Get(); }
+	std::string& GetCalendarReset() { return m_szCalendarReset.Get(); }
 			
 	bool IsBalanceBookValid() const;
 	bool IsIssueDateValid() const;
@@ -54,8 +57,6 @@ public:
 	bool IsBusinessDayConventionValid() const;
 	bool IsAccrualBasisValid() const;
 	bool IsFlagPaymentValid() const;
-	bool IsCalendarPaymentValid() const;
-	bool IsCalendarResetValid() const;
 	bool IsRateCustomerValid() const;
 	
 	DECLARE_FIELD_DESCRIPTOR();
