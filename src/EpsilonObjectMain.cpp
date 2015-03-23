@@ -1,3 +1,6 @@
+// EpsilonDQProcess.cpp : Defines the entry point for the console application.
+//
+
 #include <stdio.h>
 #include <iostream>
 #include <map>
@@ -5,44 +8,59 @@
 #include "RecordSet.h"
 #include "ProcessObject.h"
 #include "CurrencyObject.h"
-#include "InterestRateObject.h"
+#include "ErrorCodeObject.h"
 #include "Cache.h"
 
-int main(int argc, char **argv)
+int main()
 {
 	el::CCache cache;
-	
+
 	cache.LoadAll();
-	
-		
+
+
 	auto& processCache = cache.GetProcessCache();
-	
+
 	auto& interestRateCache = cache.GetInterestRateCache();
-	
+
 	auto& productRuleCache = cache.GetProductRuleCache();
-	
+
+	auto& errorCodeCache = cache.GetErrorCodeCache();
+
 	for (auto& processKV : processCache)
 	{
 		for (auto& interestRateKV : interestRateCache)
 		{
 			shared_ptr<el::CObject> obj = interestRateKV.second;
-			
+
 			el::CInterestRateObject *pInterestRateObj = (el::CInterestRateObject *)obj.get();
-			
+
 			//Fetch Rule to be run
-			auto& lstRule = productRuleCache[ pInterestRateObj->GetProductType() ];
-			
-			for(auto& rule : lstRule)
+			auto& lstRule = productRuleCache[pInterestRateObj->GetProductType()];
+
+			for (auto& rule : lstRule)
 			{
 				if (!rule->Execute(cache, *pInterestRateObj))
 				{
-					//capture error code and write in csv.
+					std::string szErrorCode = rule->GetErrorCode();
+					auto ItrErrCode = errorCodeCache.find(szErrorCode);
+					if (ItrErrCode != errorCodeCache.end())
+					{
+						std::shared_ptr<el::CObject >ErrorCodeObj = (*ItrErrCode).second;
+						el::CErrorCodeObject* pErrorCode = (el::CErrorCodeObject*)ErrorCodeObj.get();
+						ostringstream os;
+						os << pInterestRateObj->GetTableName() << "," << pInterestRateObj->GetProductType() << "," << pInterestRateObj->GetInstrumentID() << "," << szErrorCode
+							<< "," << pErrorCode->GetFieldName() << "," << pErrorCode->GetDescription();
+						cout << os.str() << endl;
+					}
 				}
 			}
 		}
 	}
-		
-	
+
+
 	printf("hello world\n");
+	char ch;
+	cin >> ch;
 	return 0;
 }
+

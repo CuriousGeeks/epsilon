@@ -28,7 +28,8 @@ public:
 		eInvalidObject,
 		eProcessObject,
 		eInterestRateObject,
-		eCurrencyObject
+		eCurrencyObject,
+		eErrorCodeObject
 	};
 	
 	CObject()

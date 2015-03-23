@@ -22,6 +22,8 @@ class CCache
 	inline IntKeyObjectCache& GetProcessCache() { return m_mapProcessCache; }
 	inline IntKeyObjectCache& GetInterestRateCache() { return m_mapInterestRateCache; }
 	inline StringKeyObjectCache& GetCurrencyCache() { return m_mapCurrencyCache; }
+	inline StringKeyObjectCache& GetErrorCodeCache() { return m_mapErrorCodeCache; }
+
 	ProductRuleMap& GetProductRuleCache();
 		
 	bool LoadAll();
@@ -32,8 +34,8 @@ private:
 	
 	
 	StringKeyObjectCache m_mapCurrencyCache;	
+	StringKeyObjectCache m_mapErrorCodeCache;
 	IntKeyObjectCache m_mapProcessCache;
-	
 	IntKeyObjectCache m_mapInterestRateCache;
 	
 	CProductRuleCache m_ProductRuleCache;

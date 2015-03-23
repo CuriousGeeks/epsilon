@@ -4,6 +4,7 @@
 #include "ProcessObject.h"
 #include "CurrencyObject.h"
 #include "InterestRateObject.h"
+#include "ErrorCodeObject.h"
 
 #include <iostream>
 
@@ -79,6 +80,14 @@ bool CCache::Load(const std::string& strCSVFile, StringKeyObjectCache& mapObject
 					mapObjectCache.insert(pair<string, shared_ptr<CObject>> (currencyObj->GetCurrencyID(), currencyObj));
 				}
 				break;
+				case CObject::eErrorCodeObject:
+				{
+					shared_ptr<CErrorCodeObject> errorCodeObj(new CErrorCodeObject());
+					errorCodeObj->LoadFromRecord(rowVec);
+
+					mapObjectCache.insert(pair<string, shared_ptr<CObject>>(errorCodeObj->GetErrorCode(), errorCodeObj));
+				}
+				break;
 			}
 	}
 	
@@ -90,6 +99,7 @@ bool CCache::LoadAll()
 	Load("../test/Process.csv", GetProcessCache(), CObject::eProcessObject);
 	Load("../test/Currency.csv", GetCurrencyCache(), CObject::eCurrencyObject);
 	Load("../test/Interest_Rate.csv", GetInterestRateCache(), CObject::eInterestRateObject);
+	Load("../test/Data_Quality_Error_Codes.csv", GetErrorCodeCache(), CObject::eErrorCodeObject);
 	m_ProductRuleCache.Initialize();
 	//Load("Currency.csv" ..)
 	//Load("InterestRate.csv" ..)
