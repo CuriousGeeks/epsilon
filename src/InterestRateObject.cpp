@@ -54,10 +54,12 @@ m_dRateCustomer(eRateCustomer)
 }
 
 bool CInterestRateObject::IsBalanceBookValid() const{ return m_dBalanceBook.Get() > 0; }
-bool CInterestRateObject::IsIssueDateValid() const{ return m_dBalanceBook.Get() < 0; }
-bool CInterestRateObject::IsIssueDateValidForData() const{ return m_dBalanceBook.Get() < 0; }
-bool CInterestRateObject::IsMaturityDateValid() const{ return m_dBalanceBook.Get() < 0; }
-bool CInterestRateObject::IsMaturityDateValidForData() const{ return m_dBalanceBook.Get() < 0; }
+bool CInterestRateObject::IsIssueDateValid() const{	el::CDateTime IssueDate(m_dtDateIssue.Get()); return IssueDate.Test(); 
+}
+bool CInterestRateObject::IsIssueDateValidForData() const{ return true; } //pending 
+bool CInterestRateObject::IsMaturityDateValid() const{	el::CDateTime MaturityDate(m_dtDateMaturity.Get()); return MaturityDate.Test();
+}
+bool CInterestRateObject::IsMaturityDateValidForData() const{ return true; } //pending
 
 bool CInterestRateObject::IsPaymentFreqValid() const{ return (CHECK_FREQ(m_nPaymentFreq.Get())); }
 bool CInterestRateObject::IsPaymentFreqUnitValid() const{ return (CHECK_UNIT(m_cPaymentFreqUnit.Get())); }

@@ -13,6 +13,7 @@ namespace el
 	class CCSVRow
 	{
 	public:
+		CCSVRow(){}
 		CCSVRow(const string& szRow)
 		{
 			stringstream   lineStream(szRow);
@@ -37,6 +38,8 @@ namespace el
 		CRecordSet(string szCSVFileName);
 		~CRecordSet();				
 		bool LoadFromFile();
+		void AddRow(std::string szRow);
+		bool WriteToFile();
 		
 		inline list<CCSVRow*>& GetCSVRowList() { return m_lstTable; }
 		//LoadIntoMap()

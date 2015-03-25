@@ -137,7 +137,7 @@ namespace el
 		CRateIndexRule() :m_eRuleId(eRateIndexRule){}
 		inline int GetRuleId() { return m_eRuleId; }
 		bool Execute(CCache& cache, CInterestRateObject& obj);
-		inline string GetErrorCode(){ return ""; }
+		inline string GetErrorCode(){ return ""; } //cant find specific error code in file
 	};
 
 	class CAssetLiabilityRule : public CRule
@@ -177,7 +177,7 @@ namespace el
 		CFlagPaymentRule() :m_eRuleId(eFlagPaymentRule){}
 		inline int GetRuleId() { return m_eRuleId; }
 		bool Execute(CCache& cache, CInterestRateObject& obj);
-		inline string GetErrorCode(){ return ""; }
+		inline string GetErrorCode(){ return ""; }//cant find specific error code in file
 	};
 
 	class CCalendarPaymentRule : public CRule

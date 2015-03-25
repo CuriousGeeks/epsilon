@@ -1,6 +1,7 @@
 #pragma once
 
 #include "./Object.h"
+#include "DateTime.h"
 
 namespace el{
 	
@@ -71,9 +72,9 @@ private:
 	mutable CFieldInt		m_nAssetLiability;
 	mutable CFieldDouble	m_dBalanceBook;
 	mutable CFieldInt		m_nBuisnessDayConvention;
-	mutable CFieldDate		m_dtDateData;
-	mutable CFieldDate		m_dtDateIssue;
-	mutable CFieldDate		m_dtDateMaturity;
+	mutable CFieldString	m_dtDateData;
+	mutable CFieldString	m_dtDateIssue;
+	mutable CFieldString	m_dtDateMaturity;
 	mutable CFieldString	m_szCalendarPayment;
 	mutable CFieldString	m_szCalendarReset;
 	mutable CFieldInt		m_nFlagPayment;

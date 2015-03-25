@@ -28,3 +28,23 @@ bool CRecordSet::LoadFromFile()
 	}
 	return true;
 }
+
+void CRecordSet::AddRow(std::string szRow)
+{
+	m_lstTable.push_back(new CCSVRow(szRow));
+}
+
+bool CRecordSet::WriteToFile()
+{
+	ofstream file(m_szCSVFileName);
+	if (!file) return false;
+	for (CCSVRow* Row : m_lstTable)
+	{
+		ostringstream os;
+		for (auto Cell : Row->GetVecRow())
+		{
+			os << Cell<<",";
+		}
+		file << os.str() <<std::endl;
+	}
+}
