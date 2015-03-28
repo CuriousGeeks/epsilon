@@ -5,6 +5,10 @@ using namespace el;
 
 void CRuleCache::Initialize()
 {
+	m_mapRule[CRule::eGenInstrumentIDRule] = shared_ptr<CRule>(new CGenInstrumentIDRule);
+	m_mapRule[CRule::eGenChartOfAccountIDRule] = shared_ptr<CRule>(new CGenChartOfAccountIDRule);
+	m_mapRule[CRule::eGenGLAccountIDRule] = shared_ptr<CRule>(new CGenGLAccountIDRule);
+	m_mapRule[CRule::eGenCurrencyRule] = shared_ptr<CRule>(new CGenCurrencyRule);
 	m_mapRule[CRule::eBalanceBookRule] = shared_ptr<CRule>(new CBalanceBookRule);
 	m_mapRule[CRule::eDateIssueRule] = shared_ptr<CRule>(new CDateIssueRule);
 	m_mapRule[CRule::eDateIssueAndDateDataRule] = shared_ptr<CRule>(new CDateIssueAndDateDataRule);
@@ -35,6 +39,10 @@ void CProductRuleCache::Initialize()
 	
 	//Credit Cards Product
 	list<shared_ptr<CRule>> lstCreditCardsRules;
+	lstCreditCardsRules.push_back(ruleMap[CRule::eGenInstrumentIDRule]);
+	lstCreditCardsRules.push_back(ruleMap[CRule::eGenChartOfAccountIDRule]);
+	lstCreditCardsRules.push_back(ruleMap[CRule::eGenGLAccountIDRule]);
+	lstCreditCardsRules.push_back(ruleMap[CRule::eGenCurrencyRule]);
 	lstCreditCardsRules.push_back(ruleMap[CRule::eBalanceBookRule]);
 	lstCreditCardsRules.push_back(ruleMap[CRule::eDateIssueRule]);
 	lstCreditCardsRules.push_back(ruleMap[CRule::eDateIssueAndDateDataRule]);

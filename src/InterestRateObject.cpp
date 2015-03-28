@@ -14,6 +14,7 @@ BEGIN_FIELD_DESCRIPTOR(CInterestRateObject)
 	ADD_FIELD_DESCRIPTOR(m_nAssetLiability)
 	ADD_FIELD_DESCRIPTOR(m_dBalanceBook)
 	ADD_FIELD_DESCRIPTOR(m_nBuisnessDayConvention)
+	ADD_FIELD_DESCRIPTOR(m_szCurrency)
 	ADD_FIELD_DESCRIPTOR(m_dtDateData)
 	ADD_FIELD_DESCRIPTOR(m_dtDateIssue)
 	ADD_FIELD_DESCRIPTOR(m_dtDateMaturity)
@@ -26,6 +27,7 @@ BEGIN_FIELD_DESCRIPTOR(CInterestRateObject)
 	ADD_FIELD_DESCRIPTOR(m_szRateIndex)
 	ADD_FIELD_DESCRIPTOR(m_nResetFreq)
 	ADD_FIELD_DESCRIPTOR(m_cResetFreqUnit)
+	ADD_FIELD_DESCRIPTOR(m_nChartOfAccountId)
 END_FIELD_DESCRIPTOR()
 
 CInterestRateObject::CInterestRateObject():
@@ -37,6 +39,7 @@ m_nAssetLiability(eAssetLiability),
 m_dBalanceBook(eBalanceBook),
 m_nBuisnessDayConvention(eBuisnessDayConvention),
 m_nAccrualBasis(eAccrualBasis),
+m_szCurrency(eCurrency),
 m_dtDateData(eDateData),
 m_dtDateIssue(eDateIssue),
 m_dtDateMaturity(eDateMaturity),
@@ -48,18 +51,40 @@ m_cPaymentFreqUnit(ePaymentFreqUnit),
 m_szRateIndex(eRateIndex),
 m_nResetFreq(eResetFreq),
 m_cResetFreqUnit(eResetFreqUnit),
-m_dRateCustomer(eRateCustomer)
+m_dRateCustomer(eRateCustomer),
+m_nChartOfAccountId(eChartOfAccountID)
 {
 	
 }
 
+bool CInterestRateObject::IsInstrumentIDValid() const{ return m_nInstrumentID.Get() > 0; }
+bool CInterestRateObject::IsChartOfAccountIdValid() const { return m_nChartOfAccountId.Get() > 0; }
+bool CInterestRateObject::IsGLAccountIDValid() const { return m_szGLAccountID.Get() != ""; }
+
 bool CInterestRateObject::IsBalanceBookValid() const{ return m_dBalanceBook.Get() > 0; }
-bool CInterestRateObject::IsIssueDateValid() const{	el::CDateTime IssueDate(m_dtDateIssue.Get()); return IssueDate.Test(); 
-}
-bool CInterestRateObject::IsIssueDateValidForData() const{ return true; } //pending 
-bool CInterestRateObject::IsMaturityDateValid() const{	el::CDateTime MaturityDate(m_dtDateMaturity.Get()); return MaturityDate.Test();
-}
-bool CInterestRateObject::IsMaturityDateValidForData() const{ return true; } //pending
+bool CInterestRateObject::IsIssueDateValid() const{	el::CDateTime IssueDate(m_dtDateIssue.Get()); return IssueDate.Check(); }
+bool CInterestRateObject::IsDataDateValid() const{ el::CDateTime DataDate(m_dtDateData.Get()); return DataDate.Check(); }
+bool CInterestRateObject::IsIssueDateValidForData() const
+{
+	el::CDateTime IssueDate(m_dtDateIssue.Get());
+	el::CDateTime DataDate(m_dtDateData.Get());
+	if (IssueDate.Check() && DataDate.Check())
+	{
+		return (IssueDate < DataDate);
+	}
+	return false;
+} 
+bool CInterestRateObject::IsMaturityDateValid() const{	el::CDateTime MaturityDate(m_dtDateMaturity.Get()); return MaturityDate.Check();}
+bool CInterestRateObject::IsMaturityDateValidForData() const
+{ 
+	el::CDateTime MaturityDate(m_dtDateMaturity.Get());
+	el::CDateTime DataDate(m_dtDateData.Get());
+	if (MaturityDate.Check() && DataDate.Check())
+	{
+		return (DataDate < MaturityDate);
+	}
+	return false;
+} 
 
 bool CInterestRateObject::IsPaymentFreqValid() const{ return (CHECK_FREQ(m_nPaymentFreq.Get())); }
 bool CInterestRateObject::IsPaymentFreqUnitValid() const{ return (CHECK_UNIT(m_cPaymentFreqUnit.Get())); }

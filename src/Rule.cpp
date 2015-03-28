@@ -3,6 +3,24 @@
 
 using namespace el;
 
+bool CGenInstrumentIDRule::Execute(CCache& cache, CInterestRateObject& obj)
+{
+	return obj.IsInstrumentIDValid();
+}
+bool CGenChartOfAccountIDRule::Execute(CCache& cache, CInterestRateObject& obj)
+{
+	return obj.IsChartOfAccountIdValid();
+}
+bool CGenGLAccountIDRule::Execute(CCache& cache, CInterestRateObject& obj)
+{
+	return obj.IsGLAccountIDValid();
+}
+bool CGenCurrencyRule::Execute(CCache& cache, CInterestRateObject& obj)
+{
+	auto& currencyCache = cache.GetCurrencyCache();
+	return currencyCache.find(obj.GetCurrency()) != currencyCache.end();
+}
+
 bool CBalanceBookRule::Execute(CCache& cache, CInterestRateObject& obj)
 {
 	return obj.IsBalanceBookValid();

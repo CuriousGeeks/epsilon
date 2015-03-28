@@ -15,7 +15,11 @@ namespace el
 	public:
 		enum enmRuleId
 		{
-			eBalanceBookRule = 0,
+			eGenInstrumentIDRule = 0,
+			eGenChartOfAccountIDRule,
+			eGenGLAccountIDRule,
+			eGenCurrencyRule,
+			eBalanceBookRule,
 			eDateIssueRule,
 			eDateIssueAndDateDataRule,
 			eDateMaturityRule,
@@ -36,7 +40,54 @@ namespace el
 		virtual bool Execute(CCache& cache, CInterestRateObject& obj) = 0;
 		virtual string GetErrorCode() = 0;
 	};
+	class CGenInstrumentIDRule : public CRule
+	{
+		enmRuleId m_eRuleId;
+	public:
+		CGenInstrumentIDRule() :m_eRuleId(eGenInstrumentIDRule){}
 
+		inline int GetRuleId() { return m_eRuleId; }
+
+		bool Execute(CCache& cache, CInterestRateObject& obj);
+
+		inline string GetErrorCode() { return "O004"; }
+	};
+	class CGenChartOfAccountIDRule : public CRule
+	{
+		enmRuleId m_eRuleId;
+	public:
+		CGenChartOfAccountIDRule() :m_eRuleId(eGenChartOfAccountIDRule){}
+
+		inline int GetRuleId() { return m_eRuleId; }
+
+		bool Execute(CCache& cache, CInterestRateObject& obj);
+
+		inline string GetErrorCode() { return "O002"; }
+	};
+	class CGenGLAccountIDRule : public CRule
+	{
+		enmRuleId m_eRuleId;
+	public:
+		CGenGLAccountIDRule() :m_eRuleId(eGenGLAccountIDRule){}
+
+		inline int GetRuleId() { return m_eRuleId; }
+
+		bool Execute(CCache& cache, CInterestRateObject& obj);
+
+		inline string GetErrorCode() { return "O003"; }
+	};
+	class CGenCurrencyRule : public CRule
+	{
+		enmRuleId m_eRuleId;
+	public:
+		CGenCurrencyRule() :m_eRuleId(eGenCurrencyRule){}
+
+		inline int GetRuleId() { return m_eRuleId; }
+
+		bool Execute(CCache& cache, CInterestRateObject& obj);
+
+		inline string GetErrorCode() { return "O005"; }
+	};
 	class CBalanceBookRule : public CRule
 	{
 		enmRuleId m_eRuleId;
