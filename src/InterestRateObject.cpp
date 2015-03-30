@@ -57,49 +57,168 @@ m_nChartOfAccountId(eChartOfAccountID)
 	
 }
 
-bool CInterestRateObject::IsInstrumentIDValid() const{ return m_nInstrumentID.Get() > 0; }
-bool CInterestRateObject::IsChartOfAccountIdValid() const { return m_nChartOfAccountId.Get() > 0; }
-bool CInterestRateObject::IsGLAccountIDValid() const { return m_szGLAccountID.Get() != ""; }
-
-bool CInterestRateObject::IsBalanceBookValid() const{ return m_dBalanceBook.Get() > 0; }
-bool CInterestRateObject::IsIssueDateValid() const{	el::CDateTime IssueDate(m_dtDateIssue.Get()); return IssueDate.Check(); }
-bool CInterestRateObject::IsDataDateValid() const{ el::CDateTime DataDate(m_dtDateData.Get()); return DataDate.Check(); }
+bool CInterestRateObject::IsInstrumentIDValid() const
+{
+	if (m_nInstrumentID.IsNull())
+		return false;
+	else
+		return m_nInstrumentID.Get() > 0; 
+}
+bool CInterestRateObject::IsChartOfAccountIdValid() const 
+{
+	if (m_nChartOfAccountId.IsNull())
+		return false;
+	else
+		return m_nChartOfAccountId.Get() > 0; 
+}
+bool CInterestRateObject::IsGLAccountIDValid() const 
+{
+	if (m_szGLAccountID.IsNull())
+		return false;
+	else
+		return m_szGLAccountID.Get() != ""; 
+}
+bool CInterestRateObject::IsBalanceBookValid() const
+{
+	if (m_dBalanceBook.IsNull())
+		return false;
+	else
+		return m_dBalanceBook.Get() > 0; 
+}
+bool CInterestRateObject::IsIssueDateValid() const
+{	
+	if (m_dtDateIssue.IsNull())
+		return false;
+	else
+	{
+		el::CDateTime IssueDate(m_dtDateIssue.Get());
+		return IssueDate.Check();
+	}
+}
+bool CInterestRateObject::IsDataDateValid() const
+{
+	if (m_dtDateData.IsNull())
+		return false;
+	else
+	{
+		el::CDateTime DataDate(m_dtDateData.Get());
+		return DataDate.Check();
+	}
+}
 bool CInterestRateObject::IsIssueDateValidForData() const
 {
-	el::CDateTime IssueDate(m_dtDateIssue.Get());
-	el::CDateTime DataDate(m_dtDateData.Get());
-	if (IssueDate.Check() && DataDate.Check())
+	if (m_dtDateIssue.IsNull())
+		return false;
+	else
 	{
-		return (IssueDate < DataDate);
+		el::CDateTime IssueDate(m_dtDateIssue.Get());
+		el::CDateTime DataDate(m_dtDateData.Get());
+		if (IssueDate.Check() && DataDate.Check())
+		{
+			return (IssueDate < DataDate);
+		}
+		return false;
 	}
-	return false;
 } 
-bool CInterestRateObject::IsMaturityDateValid() const{	el::CDateTime MaturityDate(m_dtDateMaturity.Get()); return MaturityDate.Check();}
+bool CInterestRateObject::IsMaturityDateValid() const
+{	
+	if (m_dtDateMaturity.IsNull())
+		return false;
+	else
+	{
+		el::CDateTime MaturityDate(m_dtDateMaturity.Get()); return MaturityDate.Check();
+	}
+}
 bool CInterestRateObject::IsMaturityDateValidForData() const
 { 
-	el::CDateTime MaturityDate(m_dtDateMaturity.Get());
-	el::CDateTime DataDate(m_dtDateData.Get());
-	if (MaturityDate.Check() && DataDate.Check())
+	if (m_dtDateMaturity.IsNull())
+		return false;
+	else
 	{
-		return (DataDate < MaturityDate);
+		el::CDateTime MaturityDate(m_dtDateMaturity.Get());
+		el::CDateTime DataDate(m_dtDateData.Get());
+		if (MaturityDate.Check() && DataDate.Check())
+		{
+			return (DataDate < MaturityDate);
+		}
+		return false;
 	}
-	return false;
 } 
-
-bool CInterestRateObject::IsPaymentFreqValid() const{ return (CHECK_FREQ(m_nPaymentFreq.Get())); }
-bool CInterestRateObject::IsPaymentFreqUnitValid() const{ return (CHECK_UNIT(m_cPaymentFreqUnit.Get())); }
-bool CInterestRateObject::IsResetFreqValid() const{ return (CHECK_FREQ(m_nResetFreq.Get())); }
-bool CInterestRateObject::IsResetFreqUnitValid() const{ return (CHECK_UNIT(m_cPaymentFreqUnit.Get())); }
+bool CInterestRateObject::IsPaymentFreqValid() const
+{
+	if (m_nPaymentFreq.IsNull())
+		return false;
+	else
+		return (CHECK_FREQ(m_nPaymentFreq.Get()));
+}
+bool CInterestRateObject::IsPaymentFreqUnitValid() const
+{ 
+	if (m_cPaymentFreqUnit.IsNull())
+		return false;
+	else
+	return (CHECK_UNIT(m_cPaymentFreqUnit.Get())); 
+}
+bool CInterestRateObject::IsResetFreqValid() const
+{ 
+	if (m_nResetFreq.IsNull())
+		return false;
+	else
+	return (CHECK_FREQ(m_nResetFreq.Get())); 
+}
+bool CInterestRateObject::IsResetFreqUnitValid() const
+{ 
+	if (m_cPaymentFreqUnit.IsNull())
+		return false;
+	else
+	return (CHECK_UNIT(m_cPaymentFreqUnit.Get())); 
+}
 bool CInterestRateObject::IsRateIndexValid() const
 {
-	std::string szRateIndex = "";
-	m_szRateIndex.GetValue(szRateIndex);
-	int nRateIndex = atoi(szRateIndex.c_str());
-	return (nRateIndex>0 && nRateIndex < 1000);
+	if (m_szRateIndex.IsNull())
+		return false;
+	else
+	{
+		std::string szRateIndex = "";
+		m_szRateIndex.GetValue(szRateIndex);
+		int nRateIndex = atoi(szRateIndex.c_str());
+		return (nRateIndex > 0 && nRateIndex < 1000);
+	}
 }
-bool CInterestRateObject::IsAssetLiabilityValid() const{ return (m_nAssetLiability.Get() == 1 || m_nAssetLiability.Get() == -1); }
-bool CInterestRateObject::IsBusinessDayConventionValid() const{ return (m_nBuisnessDayConvention.Get() >= 0 && m_nBuisnessDayConvention.Get() <= 9); }
-bool CInterestRateObject::IsAccrualBasisValid() const{ return (m_nAccrualBasis.Get() >= 0 && m_nAccrualBasis.Get() <= 9); }
-bool CInterestRateObject::IsFlagPaymentValid() const{ return (m_nFlagPayment.Get() == 1 || m_nFlagPayment.Get() == 2); }
-bool CInterestRateObject::IsRateCustomerValid() const{ return m_dRateCustomer.Get() != 0; }
+bool CInterestRateObject::IsAssetLiabilityValid() const
+{
+	if (m_nAssetLiability.IsNull())
+		return false;
+	else
+	{
+		return (m_nAssetLiability.Get() == 1 || m_nAssetLiability.Get() == -1);
+	}
+}
+bool CInterestRateObject::IsBusinessDayConventionValid() const
+{ 
+	if (m_nBuisnessDayConvention.IsNull())
+		return false;
+	else
+		return(m_nBuisnessDayConvention.Get() >= 0 && m_nBuisnessDayConvention.Get() <= 9);
+}
+bool CInterestRateObject::IsAccrualBasisValid() const
+{ 
+	if (m_nAccrualBasis.IsNull())
+		return false;
+	else
+	return (m_nAccrualBasis.Get() >= 0 && m_nAccrualBasis.Get() <= 9); 
+}
+bool CInterestRateObject::IsFlagPaymentValid() const
+{
+	if (m_nFlagPayment.IsNull())
+		return false;
+	else
+	return (m_nFlagPayment.Get() == 1 || m_nFlagPayment.Get() == 2); 
+}
+bool CInterestRateObject::IsRateCustomerValid() const
+{ 
+	if (m_dRateCustomer.IsNull())
+		return false;
+	else
+	return m_dRateCustomer.Get() != 0; 
+}
 

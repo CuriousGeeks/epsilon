@@ -32,6 +32,8 @@ public:
 	
 	virtual void SetValue(const std::string& sValue) {}
 	virtual void GetValue(std::string& sValue) {}
+
+	virtual bool IsNull(){ return false; }
 	//int Get() { return GetAddress(}
 private:
 	int m_nColumnId;	
@@ -52,10 +54,12 @@ public:
 	
 	inline  int  GetTypeId() { return eTypeId;}
 	inline  int Get() { return m_iVal;}
-	
+	inline bool IsNull() { return m_bIsNull; }
 	void SetValue(const std::string& sValue);
+	
 private:
 	int m_iVal;
+	bool m_bIsNull = false;
 };
 
 class CFieldUInt : public CField
@@ -70,10 +74,12 @@ public:
 	
 	inline int  GetTypeId() { return eTypeId;}
 	inline unsigned int Get() { return m_nVal;}
+	inline bool IsNull() { return m_bIsNull; }
 	
 	void SetValue(const std::string& sValue);
 private:
 	unsigned int m_nVal;
+	bool m_bIsNull = false;
 };
 
 
@@ -90,10 +96,12 @@ public:
 	
 	inline int  GetTypeId() { return eTypeId;}
 	inline bool Get() { return m_bVal;}
-	
+	inline bool IsNull() { return m_bIsNull; }
+
 	void SetValue(const std::string& sValue);
 private:
 	bool m_bVal;	
+	bool m_bIsNull = false;
 };
 
 
@@ -109,10 +117,12 @@ public:
 	
 	inline int  GetTypeId() { return eTypeId;}
 	inline char Get() { return m_chVal;}
-	
+	inline bool IsNull() { return m_bIsNull; }
+
 	void SetValue(const std::string& sValue);
 private:
 	char m_chVal;	
+	bool m_bIsNull = false;
 };
 
 class CFieldDate : public CField
@@ -127,10 +137,12 @@ public:
 	
 	inline int  GetTypeId() { return eTypeId;}
 	inline time_t Get() { return m_chVal;}
-	
+	inline bool IsNull() { return m_bIsNull; } 
+
 	void SetValue(const std::string& sValue);
 private:
 	time_t m_chVal;	
+	bool m_bIsNull = false;
 };
 
 class CFieldString : public CField
@@ -154,10 +166,12 @@ public:
 	
 	inline int  GetTypeId() { return eTypeId;}
 	inline std::string& Get() { return m_strVal;}
+	inline bool IsNull() { return m_bIsNull; }
 	
 	void SetValue(const std::string& sValue);
 private:
 	std::string m_strVal;	
+	bool m_bIsNull = false;
 };
 
 class CFieldFloat : public CField
@@ -172,10 +186,12 @@ public:
 
 	inline  int  GetTypeId() { return eTypeId; }
 	inline  float Get() { return m_fVal; }
+	inline bool IsNull() { return m_bIsNull; }
 
 	void SetValue(const std::string& sValue);
 private:
 	float m_fVal;
+	bool m_bIsNull = false;
 };
 
 class CFieldDouble : public CField
@@ -190,9 +206,11 @@ public:
 
 	inline  int  GetTypeId() { return eTypeId; }
 	inline  double Get() { return m_dVal; }
+	inline bool IsNull() { return m_bIsNull; }
 
 	void SetValue(const std::string& sValue);
 private:
 	double m_dVal;
+	bool m_bIsNull = false;
 };
 };
